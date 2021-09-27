@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import java.lang.IndexOutOfBoundsException
 
 class Problema4 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,15 +20,18 @@ class Problema4 : AppCompatActivity() {
         val btnEnter = findViewById<Button>(R.id.btnEnter40)
         var integerListIndex = 0
         btnEnter.setOnClickListener {
+            try{
             integerList[integerListIndex] = etNumber0.text.toString().toInt()
-            tvResult.text =
-                "Index: ${integerListIndex + 1}, Integer: ${etNumber0.text.toString().toInt()}"
-            integerListIndex++
-            if (integerListIndex == integerList.size){
-                tvResult.text = "First index: ${integerList.first()}, Last index: ${integerList.lastIndex}"
+            val info = "Index: ${integerListIndex + 1}, Integer: ${etNumber0.text.toString().toInt()}"
+            tvResult.text = info
+
+            if (integerListIndex == integerList.size-1){
+                val result = "First index: ${integerList.first()}, Last index: " +
+                        "${integerList.get(integerList.lastIndex)}"
+                tvResult.text = info.plus(" "+result)
             }
-
+            integerListIndex++
+            }catch (e:IndexOutOfBoundsException){}
         }
-
     }
 }
