@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMM_21ArraysConceptos_SerranoCanoRuben_AS">
         <activity
+            android:name=".ProblemaPropuesto2"
+            android:exported="true" />
+        <activity
+            android:name=".ProblemaPropuesto1"
+            android:exported="true" />
+        <activity
+            android:name=".Problema5"
+            android:exported="true" />
+        <activity
             android:name=".Problema4"
             android:exported="true" />
         <activity
